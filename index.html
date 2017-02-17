@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body data-css="margin-0 padding-0">
-<div data-css="fontSize-30 color-#f0f paddingTop-10">ghcgcfc</div>
+<div data-css="fontSize-30 color-#f0f paddingTop-10" data-md="fontSize-50" data-sm="color-#f00">ghcgcfc</div>
 
-<div data-css="color-green">ghcgcfc</div>
+<div data-md="fontSize-30 color-#f0f paddingTop-10" data-css data-sm="color-green">ghcgcfc</div>
 
 </body>
 <script>
@@ -22,10 +22,14 @@ function l(a, b) {
 
 function w() {
     for (var a = window.innerWidth, b = document.querySelectorAll("[data-css]"), c = b.length; c--;) {
-        b[c].removeAttribute("style"), l(b[c], "css");        
+        b[c].removeAttribute("style"), l(b[c], "css");
+        for (var d = 0; d <= sizes.width.length; d++) a <= sizes.width[d] && l(b[c], sizes.tags[d]        
     }
 }
-
+var sizes = {
+    width: [1200, 990, 700],
+    tags: ["lg", "md", "sm"]
+};
 window.addEventListener("DOMContentLoaded", w), window.addEventListener("resize", w);
 
 </script>
