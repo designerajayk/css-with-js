@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body data-css="margin-0 padding-0">
-<div data-css="fontSize-30 color-#f0f paddingTop-10" data-md="fontSize-50" data-sm="color-#f00">ghcgcfc</div>
+<div data-css="fontSize-30 color-#f0f paddingTop-10" data-md="fontSize-50" data-hover="color-#f00">ghcgcfc</div>
 
-<div data-md="fontSize-30 color-#f0f paddingTop-10" data-css data-sm="color-green">ghcgcfc</div>
+<div data-md="fontSize-30 color-#f0f paddingTop-10" data-css data-hover="color-green">ghcgcfc</div>
 
 </body>
 <script>
@@ -23,7 +23,16 @@ function l(a, b) {
 function w() {
     for (var a = window.innerWidth, b = document.querySelectorAll("[data-css]"), c = b.length; c--;) {
         b[c].removeAttribute("style"), l(b[c], "css");
-        for (var d = 0; d <= sizes.width.length; d++) a <= sizes.width[d] && l(b[c], sizes.tags[d]        
+        for (var d = 0; d <= sizes.width.length; d++) a <= sizes.width[d] && l(b[c], sizes.tags[d]);
+        b[c].onmouseover = function() {
+            this.hasAttribute("data-hover") && l(this, "hover");
+        }, b[c].onmouseout = function() {
+            if (this.hasAttribute("data-hover")) {
+				this.removeAttribute("style");
+                l(this, "css");
+                for (var b = 0; b <= sizes.width.length; b++) a <= sizes.width[b] && l(this, sizes.tags[b]);
+            }
+        };
     }
 }
 var sizes = {
