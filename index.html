@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body data-css="margin-0 padding-0">
+<div data-css="fontSize-30 color-#f0f paddingTop-10">ghcgcfc</div>
+
+<div data-css="color-green">ghcgcfc</div>
+
+</body>
+<script>
+function l(a, b) {
+    for (var c = String(a.getAttribute("data-" + b)).trim().split(/\s+/), d = c.length; d--;) {
+        var e = c[d].split("-"),
+            f = e[1];
+        a.style[e[0]] = ~~f ? f + "px" : f;
+    }
+}
+
+function w() {
+    for (var a = window.innerWidth, b = document.querySelectorAll("[data-css]"), c = b.length; c--;) {
+        b[c].removeAttribute("style"), l(b[c], "css");        
+    }
+}
+
+window.addEventListener("DOMContentLoaded", w), window.addEventListener("resize", w);
+
+</script>
+
+</html>
